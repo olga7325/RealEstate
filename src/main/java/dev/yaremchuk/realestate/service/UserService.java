@@ -1,11 +1,13 @@
 package dev.yaremchuk.realestate.service;
 
+import dev.yaremchuk.realestate.entity.Machinery;
 import dev.yaremchuk.realestate.entity.User;
 import dev.yaremchuk.realestate.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -14,7 +16,7 @@ import java.util.Optional;
 public class UserService {
     private UserRepository userRepository;
 
-    public void save(User user){
+    public void create(User user){
         userRepository.save(user);
     }
 
@@ -24,5 +26,9 @@ public class UserService {
 
     public Optional<User> findById(Integer id){
         return userRepository.findById(id);
+    }
+
+    public List<User> findAll(){
+        return (List<User>) userRepository.findAll();
     }
 }
