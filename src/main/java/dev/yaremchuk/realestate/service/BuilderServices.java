@@ -18,7 +18,6 @@ public class BuilderServices {
         return builderRepository.save(builder);
     }
 
-
     public List<Builder> findAll(){
         return (List<Builder>) builderRepository.findAll();
     }
