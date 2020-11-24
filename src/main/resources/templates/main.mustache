@@ -2,26 +2,32 @@
 
 <body>
     <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>>
+    <div>
         <form method="post">
             <input type="text" name="text" placeholder="Enter the builder company name"/>
             <input type="number" name="floors" placeholder="Enter the number of floors"/>
-            <input type="number" name="progress" placeholder="Enter the progress (in percents)"/>
             <input type="number" name="price" placeholder="Enter the price"/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
             <button type="submit">Add</button>
         </form>>
     </div>
     <div>List of all buildings</div>
     <form method="post" action="filter">
         <input type="text" name="filter">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <button type="submit">Search</button>>
     </form>>
-    <div>Builder company - floors - progress, % - price </div>
+    <div>Builder company - floors - price </div>
     {{#buildings}}
     <div>
         <b>{{id}}</b>
         <b>{{builderCompany}}</b>
         <b>{{floors}}</b>
-        <b>{{progress}}</b>
         <b>{{price}}</b>
     </div>>
     {{/buildings}}
