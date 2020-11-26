@@ -38,7 +38,6 @@ CREATE TABLE buildings(
     building_state INT NOT NULL,
     floors INT NOT NULL,
     building_type INT NOT NULL,
-    builder_company VARCHAR(50) DEFAULT NULL,
     price INT,
     building_started date DEFAULT NULL,
     building_completed date DEFAULT NULL,
@@ -51,7 +50,6 @@ CREATE TABLE users(
     name VARCHAR(50),
     email VARCHAR(50),
     password VARCHAR(50) NOT NULL,
-    secret_key VARCHAR(50) NOT NULL,
     is_active boolean DEFAULT TRUE,
     role INT NOT NULL,
     FOREIGN KEY (role) REFERENCES  user_roles(id)
@@ -60,14 +58,14 @@ CREATE TABLE builders(
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
+    email VARCHAR(50),
     specialty INT NOT NULL,
     FOREIGN KEY (specialty) REFERENCES  builder_specialties(id)
 );
 CREATE TABLE machinery(
     id INT AUTO_INCREMENT PRIMARY KEY,
     producer VARCHAR(50),
-    quantity INT NOT NULL,
     type INT NOT NULL,
-    release_date date DEFAULT NULL,
+    release_date date NOT NULL,
     FOREIGN KEY (type) REFERENCES  machinery_types(id)
 );

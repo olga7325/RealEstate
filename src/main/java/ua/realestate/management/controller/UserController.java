@@ -3,7 +3,6 @@ package ua.realestate.management.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import ua.realestate.management.entity.User;
-import ua.realestate.management.entity.enums.Role;
 import ua.realestate.management.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -44,7 +43,7 @@ public class UserController {
             return "registration";
         }
 
-        user.setRoles(Collections.singleton(Role.BASIC_USER));
+        //user.setRoles(Collections.singleton(Role.BASIC_USER));
         userRepository.save(user);
 
         return "redirect:/login";

@@ -8,11 +8,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "user_roles")
-public class UserRoles {
+public class UserRole {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

@@ -1,5 +1,6 @@
 package ua.realestate.management.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.realestate.management.entity.Builder;
 import ua.realestate.management.repository.BuilderRepository;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.Map;
 @RequestMapping("builders")
 public class BuilderController {
 
+    @Autowired
     private BuilderRepository builderRepository;
 
     @GetMapping

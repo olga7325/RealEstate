@@ -1,5 +1,6 @@
 package ua.realestate.management.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.realestate.management.entity.Machinery;
 import ua.realestate.management.repository.MachineryRepository;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.Map;
 @RequestMapping("machinery")
 public class MachineryController {
 
+    @Autowired
     private MachineryRepository machineryRepository;
 
     @GetMapping

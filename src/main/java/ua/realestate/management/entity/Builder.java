@@ -8,7 +8,6 @@ import lombok.NonNull;
 import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "builders")
@@ -19,6 +18,7 @@ public class Builder {
     private Integer id;
     private String firstName;
     private String lastName;
+    private String email;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "specialty")
