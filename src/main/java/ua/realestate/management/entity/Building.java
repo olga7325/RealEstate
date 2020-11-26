@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "buildings")
@@ -19,7 +18,6 @@ public class Building {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-    private String builderCompany;
     private int floors;
     private int price;
     private Date buildingStarted;
@@ -37,8 +35,7 @@ public class Building {
     private BuildingState buildingState;
 
 
-    public Building(String builderCompany, int floors, int price) {
-        this.builderCompany = builderCompany;
+    public Building(int floors, int price) {
         this.floors = floors;
         this.price = price;
     }

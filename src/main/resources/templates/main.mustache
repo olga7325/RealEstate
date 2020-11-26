@@ -9,7 +9,6 @@
     </div>>
     <div>
         <form method="post">
-            <input type="text" name="text" placeholder="Enter the builder company name"/>
             <input type="number" name="floors" placeholder="Enter the number of floors"/>
             <input type="number" name="price" placeholder="Enter the price"/>
             <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
@@ -22,11 +21,10 @@
         <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <button type="submit">Search</button>>
     </form>>
-    <div>Builder company - floors - price </div>
+    <div>floors - price </div>
     {{#buildings}}
     <div>
         <b>{{id}}</b>
-        <b>{{builderCompany}}</b>
         <b>{{floors}}</b>
         <b>{{price}}</b>
     </div>>

@@ -14,16 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-@AllArgsConstructor
 @Service
 public class UserService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
 
-//    private final UserRepository userRepository;
-//    public UserService(UserRepository userRepository){
-//        this.userRepository = userRepository;
-//    }
+    private final UserRepository userRepository;
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
     public void create(User user){
         userRepository.save(user);

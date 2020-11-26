@@ -14,27 +14,27 @@ INSERT INTO building_state (state, description) VALUES
     ('In progress', 'The construction has begun.'),
     ('Completed', 'The building is completed.'),
     ('Put into operation', 'Еhe building is put into operation.');
--- INSERT INTO user_roles (role, description) VALUES
---     ('Basic user', 'Read-only rights'),
---     ('Moderator', 'Moderator can edit data and add new buildings.'),
---     ('Admin', 'Admin can edit data and add new users and buildings.');
+INSERT INTO user_roles (role, description) VALUES
+    ('Basic user', 'Read-only rights'),
+    ('Moderator', 'Moderator can edit data and add new buildings.'),
+    ('Admin', 'Admin can edit data and add new users and buildings.');
 INSERT INTO machinery_types (type, description) VALUES
     ('Bulldozer', 'A powerful track-laying tractor with caterpillar tracks and a broad curved upright blade at the front for clearing ground.'),
     ('Excavator', 'A large machine for digging and moving earth.'),
     ('Trencher', 'A trencher is a piece of construction equipment used to dig trenches, especially for laying pipes or electrical cables, for installing drainage, or in preparation for trench warfare.'),
     ('Backhoe Loader', 'A machine that consists of a tractor-like unit fitted with a loader-style shovel/bucket on the front and a backhoe on the back.');
-INSERT INTO machinery (producer, quantity, type) VALUES
-    ('Cat', 2, 1),
-    ('Volvo', 3, 2),
-    ('Komatsu', 4, 3),
-    ('Takeuchi', 3, 4),
-    ('JCB', 4, 1),
-    ('Cat', 2, 2);
-INSERT INTO builders (first_name, last_name, specialty) VALUES
-    ('John', 'Doe', 1),
-    ('Bob', 'Marley', 2),
-    ('Sherlock', 'Holmes', 3),
-    ('Jane', 'Doe', 4),
-    ('Tom', 'Sawer', 1),
-    ('Tod', 'Smith', 2),
-    ('David', 'Smith', 3);
+INSERT INTO machinery (producer, type, release_date) VALUES
+    ('Cat', 1, '2018-12-12'),
+    ('Volvo', 2, '2015-12-12'),
+    ('Komatsu', 3, '2000-05-07'),
+    ('Takeuchi', 4, '2010-10-02'),
+    ('JCB', 1, '2020-11-10'),
+    ('Cat', 2, '2005-02-11');
+INSERT INTO builders (first_name, last_name, email, specialty) VALUES
+    ('John', 'Doe', 'johndoe@gmail.com', 1),
+    ('Bob', 'Marley', 'bobmarley@gmail.com', 2),
+    ('Sherlock', 'Holmes', 'sherlockholmes@gmail.com', 3),
+    ('Jane', 'Doe', 'janedoe@gmail.com', 4),
+    ('Tom', 'Sawer', 'tomsawer@gmail.com', 1),
+    ('Tod', 'Smith', 'todsmith@gmail.com', 2),
+    ('David', 'Smith', 'davidsmith@gmail.com', 3);
