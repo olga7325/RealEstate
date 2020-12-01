@@ -15,9 +15,9 @@ INSERT INTO building_state (state, description) VALUES
     ('Completed', 'The building is completed.'),
     ('Put into operation', 'Еhe building is put into operation.');
 INSERT INTO user_roles (role, description) VALUES
-    ('Basic user', 'Read-only rights'),
-    ('Moderator', 'Moderator can edit data and add new buildings.'),
-    ('Admin', 'Admin can edit data and add new users and buildings.');
+    ('BASIC USER', 'Read-only rights'),
+    ('MODERATOR', 'Moderator can edit data and add new buildings.'),
+    ('ADMIN', 'Admin can edit data and add new users and buildings.');
 INSERT INTO machinery_types (type, description) VALUES
     ('Bulldozer', 'A powerful track-laying tractor with caterpillar tracks and a broad curved upright blade at the front for clearing ground.'),
     ('Excavator', 'A large machine for digging and moving earth.'),

@@ -34,3 +34,5 @@ device/logs/
 *.zip
 *.tar.gz
 *.rar
+
+real_estate.trace.db

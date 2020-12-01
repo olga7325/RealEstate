@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -17,10 +16,10 @@ public class ExceptionResponse {
     @JsonIgnore
     private String path;
 
-    public ExceptionResponse(Map<String, Object> errorAttributes){
-        this.setPath((String) errorAttributes.get("path"));
-        this.setMessage((String) errorAttributes.get("message"));
-        this.setTimeStamp(errorAttributes.get("timestamp").toString());
-        this.setTrace((String) errorAttributes.get("trace"));
+    public ExceptionResponse(String message, String timeStamp, String trace, String path){
+        this.message = message;
+        this.timeStamp = timeStamp;
+        this.trace = trace;
+        this.path = path;
     }
 }
