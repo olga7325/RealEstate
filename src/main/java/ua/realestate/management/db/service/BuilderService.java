@@ -1,19 +1,20 @@
-package ua.realestate.management.service;
+package ua.realestate.management.db.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.realestate.management.entity.Builder;
 import ua.realestate.management.exception.ErrorMessage;
 import ua.realestate.management.exception.exceptions.NotDeletedException;
 import ua.realestate.management.repository.BuilderRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BuilderService {
 
     private final BuilderRepository builderRepository;
+
+    @Autowired
     public BuilderService(BuilderRepository builderRepository) {
         this.builderRepository = builderRepository;
     }

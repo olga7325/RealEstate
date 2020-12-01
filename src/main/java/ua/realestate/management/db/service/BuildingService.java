@@ -1,5 +1,6 @@
-package ua.realestate.management.service;
+package ua.realestate.management.db.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.realestate.management.entity.*;
 import ua.realestate.management.exception.ErrorMessage;
 import ua.realestate.management.exception.exceptions.NotDeletedException;
@@ -12,6 +13,8 @@ import java.util.List;
 public class BuildingService {
 
     private final BuildingRepository buildingRepository;
+
+    @Autowired
     public BuildingService(BuildingRepository buildingRepository) {
         this.buildingRepository = buildingRepository;
     }

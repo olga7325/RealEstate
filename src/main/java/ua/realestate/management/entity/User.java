@@ -5,10 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ua.realestate.management.repository.UserRepository;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Data
@@ -35,7 +39,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(getUserRole().getRole()));
+        return authorities;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ua.realestate.management.service;
+package ua.realestate.management.db.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ua.realestate.management.entity.User;
 import ua.realestate.management.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +17,8 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+
+    @Autowired
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
     }

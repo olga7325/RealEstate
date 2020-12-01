@@ -1,5 +1,6 @@
-package ua.realestate.management.service;
+package ua.realestate.management.db.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.realestate.management.entity.Machinery;
 import ua.realestate.management.exception.ErrorMessage;
 import ua.realestate.management.exception.exceptions.NotDeletedException;
@@ -13,6 +14,8 @@ import java.util.Optional;
 public class MachineryService {
 
     private final MachineryRepository machineryRepository;
+
+    @Autowired
     public MachineryService(MachineryRepository machineryRepository){
         this.machineryRepository = machineryRepository;
     }
