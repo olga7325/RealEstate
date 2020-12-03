@@ -1,6 +1,7 @@
 package ua.realestate.management.db.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import ua.realestate.management.entity.Builder;
 import ua.realestate.management.exception.ErrorMessage;
 import ua.realestate.management.exception.exceptions.NotDeletedException;
@@ -23,6 +24,7 @@ public class BuilderService {
         return builderRepository.save(builder);
     }
 
+    @Cacheable(value = "builderCache", key = "#id")
     public Builder findById(Integer id){
         return builderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Builder with id " + id + "does not exist"));
