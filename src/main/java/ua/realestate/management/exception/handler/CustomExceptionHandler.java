@@ -24,10 +24,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public final ResponseEntity<Object> handleRuntimeException(ExceptionResponse exception){
      ExceptionResponse exceptionResponse = new ExceptionResponse(
-             exception.getMessage(),
-             exception.getTrace(),
-             exception.getTrace(),
-             exception.getPath());
+             exception.getMessage());
      log.trace(exception.getMessage(), exception);
      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
     }
@@ -35,10 +32,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UserAlreadyRegisteredException.class)
     public final ResponseEntity<Object> userAlreadyRegisteredException(ExceptionResponse exception){
         ExceptionResponse exceptionResponse = new ExceptionResponse(
-                exception.getMessage(),
-                exception.getTimeStamp(),
-                exception.getTrace(),
-                exception.getPath());
+                exception.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
     }
 

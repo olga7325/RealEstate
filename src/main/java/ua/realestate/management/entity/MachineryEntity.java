@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "machinery")
-public class Machinery {
+public class MachineryEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -21,7 +21,7 @@ public class Machinery {
     private Integer quantity;
     private Date releaseDate;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "type")
     @NonNull
     private MachineryType type;

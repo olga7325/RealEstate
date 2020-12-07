@@ -20,7 +20,7 @@ import java.util.List;
 @Table(name = "users")
 @NoArgsConstructor
 
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private String password;
     private Boolean isActive;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_roles")
     @NonNull
     private UserRole userRole;

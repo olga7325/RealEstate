@@ -2,7 +2,7 @@ package ua.realestate.management.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import ua.realestate.management.entity.User;
+import ua.realestate.management.entity.UserEntity;
 import ua.realestate.management.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Collections;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -23,7 +22,7 @@ public class UserController {
 
     @GetMapping
     public String users(Map<String, Object> model){
-        Iterable<User> users = userRepository.findAll();
+        Iterable<UserEntity> users = userRepository.findAll();
 
         model.put("users", users);
 
@@ -35,16 +34,16 @@ public class UserController {
         return "registration";
     }
     @PostMapping("/registration")
-    public String addUser(User user, Map<String, Object> model){
-        User userFromDB = userRepository.findByName(user.getName());
+    public String addUser(UserEntity userEntity, Map<String, Object> model){
+        UserEntity userEntityFromDB = userRepository.findByName(userEntity.getName());
 
-        if(userFromDB != null){
+        if(userEntityFromDB != null){
             model.put("message", "User exists!");
             return "registration";
         }
 
         //user.setRoles(Collections.singleton(Role.BASIC_USER));
-        userRepository.save(user);
+        userRepository.save(userEntity);
 
         return "redirect:/login";
     }

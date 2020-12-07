@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "buildings")
-public class Building {
+public class BuildingEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -24,18 +24,18 @@ public class Building {
     private Date buildingCompleted;
     private Date putIntoOperation;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "building_type")
     @NonNull
     private BuildingType buildingType;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "building_state")
     @NonNull
     private BuildingState buildingState;
 
 
-    public Building(int floors, int price) {
+    public BuildingEntity(int floors, int price) {
         this.floors = floors;
         this.price = price;
     }

@@ -9,17 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExceptionResponse {
     private String message;
-    @JsonIgnore
-    private String timeStamp;
-    @JsonIgnore
-    private String trace;
-    @JsonIgnore
-    private String path;
 
-    public ExceptionResponse(String message, String timeStamp, String trace, String path){
+
+    public ExceptionResponse(String message){
         this.message = message;
-        this.timeStamp = timeStamp;
-        this.trace = trace;
-        this.path = path;
     }
 }
