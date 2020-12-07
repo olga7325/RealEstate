@@ -1,8 +1,9 @@
 package ua.realestate.management.db.service;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import ua.realestate.management.entity.Builder;
+import ua.realestate.management.entity.BuilderEntity;
 import ua.realestate.management.exception.ErrorMessage;
 import ua.realestate.management.exception.exceptions.NotDeletedException;
 import ua.realestate.management.repository.BuilderRepository;
@@ -20,31 +21,31 @@ public class BuilderService {
         this.builderRepository = builderRepository;
     }
 
-    public Builder create (Builder builder){
-        return builderRepository.save(builder);
+    public BuilderEntity create (BuilderEntity builderEntity){
+        return builderRepository.save(builderEntity);
     }
 
     @Cacheable(value = "builderCache", key = "#id")
-    public Builder findById(Integer id){
+    public BuilderEntity findById(Integer id){
         return builderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Builder with id " + id + "does not exist"));
     }
 
-    public Builder findByEmail(String email){
+    public BuilderEntity findByEmail(String email){
         return builderRepository.findByEmail(email);
     }
 
-    public List<Builder> findAll(){
-        return (List<Builder>) builderRepository.findAll();
+    public List<BuilderEntity> findAll(){
+        return (List<BuilderEntity>) builderRepository.findAll();
     }
 
-    public Builder update(Builder builder){
-        Builder updatedBuilder = builderRepository.findByEmail(builder.getEmail());
-        updatedBuilder.setFirstName(builder.getFirstName());
-        updatedBuilder.setLastName(builder.getLastName());
-        updatedBuilder.setEmail(builder.getEmail());
-        updatedBuilder.setBuilderSpecialties(builder.getBuilderSpecialties());
-        return builderRepository.save(updatedBuilder);
+    public BuilderEntity update(BuilderEntity builderEntity){
+        BuilderEntity updatedBuilderEntity = builderRepository.findByEmail(builderEntity.getEmail());
+        updatedBuilderEntity.setFirstName(builderEntity.getFirstName());
+        updatedBuilderEntity.setLastName(builderEntity.getLastName());
+        updatedBuilderEntity.setEmail(builderEntity.getEmail());
+        updatedBuilderEntity.setBuilderSpecialties(builderEntity.getBuilderSpecialties());
+        return builderRepository.save(updatedBuilderEntity);
     }
 
     public Integer delete(Integer id){

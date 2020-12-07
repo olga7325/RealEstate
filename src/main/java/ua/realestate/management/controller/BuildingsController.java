@@ -1,7 +1,7 @@
 package ua.realestate.management.controller;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
-import ua.realestate.management.entity.Building;
+import ua.realestate.management.entity.BuildingEntity;
 import ua.realestate.management.repository.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class BuildingsController {
 
     @GetMapping("/main")
     public String main(Map<String, Object> model){
-        Iterable<Building> buildings = buildingRepository.findAll();
+        Iterable<BuildingEntity> buildings = buildingRepository.findAll();
 
         model.put("buildings", buildings);
 
@@ -38,10 +38,10 @@ public class BuildingsController {
             @AuthenticationPrincipal User user,
             @RequestParam int floors,
             @RequestParam int price, Map<String, Object> model){
-        Building building = new Building(floors, price);
+        BuildingEntity buildingEntity = new BuildingEntity(floors, price);
 
-        buildingRepository.save(building);
-        Iterable<Building> buildings = buildingRepository.findAll();
+        buildingRepository.save(buildingEntity);
+        Iterable<BuildingEntity> buildings = buildingRepository.findAll();
         model.put("buildings", buildings);
         return "main";
     }

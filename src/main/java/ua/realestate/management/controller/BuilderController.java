@@ -1,7 +1,7 @@
 package ua.realestate.management.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ua.realestate.management.entity.Builder;
+import ua.realestate.management.entity.BuilderEntity;
 import ua.realestate.management.repository.BuilderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class BuilderController {
 
     @GetMapping
     public String builders(Map<String, Object> model){
-        Iterable<Builder> builders = builderRepository.findAll();
+        Iterable<BuilderEntity> builders = builderRepository.findAll();
 
         model.put("builders", builders);
 

@@ -19,40 +19,40 @@ public class BuildingService {
         this.buildingRepository = buildingRepository;
     }
 
-    public Building create (Building building){
-        return buildingRepository.save(building);
+    public BuildingEntity create (BuildingEntity buildingEntity){
+        return buildingRepository.save(buildingEntity);
     }
 
-    public Building findOne(Integer id){
+    public BuildingEntity findOne(Integer id){
         return buildingRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(String.format("Building  with id " + id + "does not exist")));
     }
 
-    public List<Building> findAll(){
-        return (List<Building>) buildingRepository.findAll();
+    public List<BuildingEntity> findAll(){
+        return (List<BuildingEntity>) buildingRepository.findAll();
     }
 
-    public List<Building> findByBuildingType(BuildingType buildingType){
-        return (List<Building>) buildingRepository.findByBuildingType(buildingType);
+    public List<BuildingEntity> findByBuildingType(BuildingType buildingType){
+        return (List<BuildingEntity>) buildingRepository.findByBuildingType(buildingType);
     }
 
-    public List<Building> findByFloors(Integer floors){
-        return (List<Building>) buildingRepository.findByFloors(floors);
+    public List<BuildingEntity> findByFloors(Integer floors){
+        return (List<BuildingEntity>) buildingRepository.findByFloors(floors);
     }
 
-    public List<Building> findByBuildingState(BuildingState buildingState){
-        return (List<Building>) buildingRepository.findByBuildingState(buildingState);
+    public List<BuildingEntity> findByBuildingState(BuildingState buildingState){
+        return (List<BuildingEntity>) buildingRepository.findByBuildingState(buildingState);
     }
 
-    public Building update (Building entity){
-        Building building = findOne(entity.getId());
-        building.setBuildingState(entity.getBuildingState());
-        building.setFloors(entity.getFloors());
-        building.setBuildingType(entity.getBuildingType());
-        building.setPrice(entity.getPrice());
-        building.setBuildingStarted(entity.getBuildingStarted());
-        building.setBuildingCompleted(entity.getBuildingCompleted());
-        building.setPutIntoOperation(entity.getPutIntoOperation());
-        return buildingRepository.save(building);
+    public BuildingEntity update (BuildingEntity entity){
+        BuildingEntity buildingEntity = findOne(entity.getId());
+        buildingEntity.setBuildingState(entity.getBuildingState());
+        buildingEntity.setFloors(entity.getFloors());
+        buildingEntity.setBuildingType(entity.getBuildingType());
+        buildingEntity.setPrice(entity.getPrice());
+        buildingEntity.setBuildingStarted(entity.getBuildingStarted());
+        buildingEntity.setBuildingCompleted(entity.getBuildingCompleted());
+        buildingEntity.setPutIntoOperation(entity.getPutIntoOperation());
+        return buildingRepository.save(buildingEntity);
     }
 
     public Integer delete(Integer id){

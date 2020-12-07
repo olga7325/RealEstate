@@ -1,14 +1,13 @@
 package ua.realestate.management.db.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ua.realestate.management.entity.Machinery;
+import ua.realestate.management.entity.MachineryEntity;
 import ua.realestate.management.exception.ErrorMessage;
 import ua.realestate.management.exception.exceptions.NotDeletedException;
 import ua.realestate.management.repository.MachineryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MachineryService {
@@ -20,20 +19,18 @@ public class MachineryService {
         this.machineryRepository = machineryRepository;
     }
 
-    public Machinery create (Machinery machinery){
-        return machineryRepository.save(machinery);
-    }
+    public MachineryEntity create (MachineryEntity machineryEntity){ return machineryRepository.save(machineryEntity); }
 
-    public Machinery findOne(Integer id){
+    public MachineryEntity findOne(Integer id){
         return machineryRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(String.format("Machine  with id " + id + "does not exist")));
     }
 
-    public List<Machinery> findAll(){
-        return (List<Machinery>) machineryRepository.findAll();
+    public List<MachineryEntity> findAll(){
+        return (List<MachineryEntity>) machineryRepository.findAll();
     }
 
-    public Machinery update(Machinery machine){
-        Machinery updatedMachine = findOne(machine.getId());
+    public MachineryEntity update(MachineryEntity machine){
+        MachineryEntity updatedMachine = findOne(machine.getId());
         updatedMachine.setProducer(machine.getProducer());
         updatedMachine.setType(machine.getType());
         updatedMachine.setReleaseDate(machine.getReleaseDate());

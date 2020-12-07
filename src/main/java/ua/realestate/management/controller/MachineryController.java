@@ -1,7 +1,7 @@
 package ua.realestate.management.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ua.realestate.management.entity.Machinery;
+import ua.realestate.management.entity.MachineryEntity;
 import ua.realestate.management.repository.MachineryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class MachineryController {
 
     @GetMapping
     public String machinery(Map<String, Object> model){
-        Iterable<Machinery> machinery = machineryRepository.findAll();
+        Iterable<MachineryEntity> machinery = machineryRepository.findAll();
 
         model.put("machinery", machinery);
 

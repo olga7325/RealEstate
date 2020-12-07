@@ -12,9 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "builders")
-@Cacheable
-@org.hibernate.annotations.Cache(region = "builderCache", usage = CacheConcurrencyStrategy.READ_WRITE, include = "non-lazy")
-public class Builder {
+
+@javax.persistence.Cacheable
+@org.hibernate.annotations.Cache(region = "builderCache", usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+public class BuilderEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -24,7 +25,7 @@ public class Builder {
     private String lastName;
     private String email;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "specialty")
     @NonNull
     private BuilderSpecialties builderSpecialties;
