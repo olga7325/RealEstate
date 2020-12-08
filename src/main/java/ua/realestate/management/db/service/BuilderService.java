@@ -25,7 +25,7 @@ public class BuilderService {
         return builderRepository.save(builderEntity);
     }
 
-    @Cacheable(value = "builderCache", key = "#id")
+//    @Cacheable(value = "builderCache", key = "#id")
     public BuilderEntity findById(Integer id){
         return builderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Builder with id " + id + "does not exist"));

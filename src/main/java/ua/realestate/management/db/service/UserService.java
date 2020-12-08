@@ -27,8 +27,8 @@ public class UserService implements UserDetailsService {
         userRepository.save(userEntity);
     }
 
-    public UserEntity findByEmail(String email){
-        return userRepository.findByEmail(email);
+    public Optional<UserEntity> findByEmail(String email){
+        return Optional.ofNullable(userRepository.findByEmail(email));
     }
 
     public UserEntity findByName(String name){

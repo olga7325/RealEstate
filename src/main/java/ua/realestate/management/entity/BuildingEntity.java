@@ -1,6 +1,5 @@
 package ua.realestate.management.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -10,7 +9,6 @@ import java.util.Date;
 
 @Data
 @NoArgsConstructor
-@Entity
 @Table(name = "buildings")
 public class BuildingEntity {
 

@@ -1,13 +1,11 @@
 package ua.realestate.management.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ua.realestate.management.repository.UserRepository;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,7 +14,6 @@ import java.util.List;
 
 
 @Data
-@Entity
 @Table(name = "users")
 @NoArgsConstructor
 
@@ -30,6 +27,14 @@ public class UserEntity implements UserDetails {
     private String email;
     private String password;
     private Boolean isActive;
+
+//    public UserRole getUserRole() {
+//        return userRole;
+//    }
+//
+//    public void setUserRole(UserRole userRole) {
+//        this.userRole = userRole;
+//    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_roles")
@@ -73,4 +78,5 @@ public class UserEntity implements UserDetails {
     public boolean isEnabled() {
         return isActive;
     }
+
 }

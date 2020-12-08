@@ -1,12 +1,13 @@
 DROP TABLE IF EXISTS buildings;
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS builders;
 DROP TABLE IF EXISTS machinery;
 DROP TABLE IF EXISTS building_types;
 DROP TABLE IF EXISTS building_state;
-DROP TABLE IF EXISTS user_roles;
+-- DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS builder_specialties;
-DROP TABLE IF EXISTS machinery_types;
+-- DROP TABLE IF EXISTS history;
+-- DROP TABLE IF EXISTS machinery_types;
 
 CREATE TABLE building_types(
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -18,7 +19,7 @@ CREATE TABLE building_state(
     state VARCHAR(50),
     description VARCHAR(255)
 );
-CREATE TABLE user_roles(
+CREATE TABLE IF NOT EXISTS user_roles(
     id INT AUTO_INCREMENT PRIMARY KEY,
     role VARCHAR(50),
     description VARCHAR(255)
@@ -28,7 +29,7 @@ CREATE TABLE builder_specialties(
     specialty VARCHAR(50),
     description VARCHAR(255)
 );
-CREATE TABLE machinery_types(
+CREATE TABLE IF NOT EXISTS machinery_types(
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(50),
     description VARCHAR(255)
@@ -45,7 +46,7 @@ CREATE TABLE buildings(
     FOREIGN KEY (building_state) REFERENCES  building_state(id),
     FOREIGN KEY (building_type) REFERENCES  building_types(id)
 );
-CREATE TABLE users(
+CREATE TABLE IF NOT EXISTS users(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
     email VARCHAR(50),
@@ -69,3 +70,12 @@ CREATE TABLE machinery(
     release_date date NOT NULL,
     FOREIGN KEY (type) REFERENCES  machinery_types(id)
 );
+-- CREATE TABLE history(
+--                       id INT AUTO_INCREMENT PRIMARY KEY,
+--                       admin_id INT NOT NULL,
+--                       user_id INT NOT NULL,
+--                       before text,
+--                       after text,
+--                       FOREIGN KEY (admin_id) REFERENCES  users(id),
+--                       FOREIGN KEY (user_id) REFERENCES  users(id)
+-- );

@@ -1,6 +1,5 @@
 package ua.realestate.management.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +7,6 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@Entity
 @Table(name = "builder_specialties")
 public class BuilderSpecialties {
 
