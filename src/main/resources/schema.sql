@@ -1,13 +1,3 @@
-DROP TABLE IF EXISTS buildings;
--- DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS builders;
-DROP TABLE IF EXISTS machinery;
--- DROP TABLE IF EXISTS building_types;
--- DROP TABLE IF EXISTS building_state;
--- DROP TABLE IF EXISTS user_roles;
--- DROP TABLE IF EXISTS builder_specialties;
--- DROP TABLE IF EXISTS machinery_types;
-
 CREATE TABLE IF NOT EXISTS building_types(
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(50),
@@ -33,7 +23,7 @@ CREATE TABLE IF NOT EXISTS machinery_types(
     type VARCHAR(50),
     description VARCHAR(255)
 );
-CREATE TABLE buildings(
+CREATE TABLE IF NOT EXISTS buildings(
     id INT AUTO_INCREMENT PRIMARY KEY,
     building_state INT NOT NULL,
     floors INT NOT NULL,
@@ -54,7 +44,7 @@ CREATE TABLE IF NOT EXISTS users(
     role INT NOT NULL,
     FOREIGN KEY (role) REFERENCES  user_roles(id)
 );
-CREATE TABLE builders(
+CREATE TABLE IF NOT EXISTS builders(
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
@@ -62,7 +52,7 @@ CREATE TABLE builders(
     specialty INT NOT NULL,
     FOREIGN KEY (specialty) REFERENCES  builder_specialties(id)
 );
-CREATE TABLE machinery(
+CREATE TABLE IF NOT EXISTS machinery(
     id INT AUTO_INCREMENT PRIMARY KEY,
     producer VARCHAR(50),
     type INT NOT NULL,
