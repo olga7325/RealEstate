@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ehcache>
+<ehcache>
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="240"
+            maxEntriesLocalDisk = "100000"
+            diskExpiryThreadIntervalSeconds = "240"
+            memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+
+<!--    Standart Query Cache-->
+
+<!--    <cache name="org.hibernate.cache.internal.StandardQueryCache" maxEntriesLocalHeap="5"-->
+<!--            eternal="false"-->
+<!--            timeToLiveSeconds="120">-->
+<!--        <persistence strategy="localTempSwap"/>-->
+<!--    </cache>-->
+
+<!--    Update Timestamp Cache-->
+
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache" maxEntriesLocalHeap="5000"
+            eternal="true">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+
+    <cache name="builderById"
+           maxElementsInMemory="100"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk = "true"/>
+
+    <cache name="builderCache"
+           maxEntriesLocalHeap="10000"
+           maxEntriesLocalDisk="1000"
+           eternal="false"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+
+</ehcache>
