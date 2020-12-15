@@ -1,14 +1,13 @@
 package ua.realestate.management.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
 @Table(name = "building_state")
 public class BuildingState {
 
