@@ -18,7 +18,6 @@ import static ua.realestate.management.exception.ErrorMessage.USER_NOT_FOUND_BY_
 public class SecurityUserService implements UserDetailsService {
     private final UserRepository userRepository;
 
-
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

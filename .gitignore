@@ -36,3 +36,4 @@ device/logs/
 *.rar
 
 real_estate.trace.db
+real_estate.mv.db
