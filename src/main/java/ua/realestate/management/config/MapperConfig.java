@@ -1,4 +1,4 @@
-package ua.realestate.management.config.cache;
+package ua.realestate.management.config;
 
 import lombok.AccessLevel;
 import org.modelmapper.ModelMapper;

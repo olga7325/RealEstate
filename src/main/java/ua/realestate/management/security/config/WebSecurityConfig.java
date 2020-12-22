@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/registration").permitAll()
+                .antMatchers("/", "/registration", "/swagger-resources/**", "/swagger-ui.html").permitAll()
                 .anyRequest().hasAuthority("ADMIN")
                 .and()
                 .formLogin()

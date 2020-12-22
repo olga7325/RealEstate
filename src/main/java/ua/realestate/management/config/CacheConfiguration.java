@@ -1,4 +1,4 @@
-package ua.realestate.management.config.cache;
+package ua.realestate.management.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
