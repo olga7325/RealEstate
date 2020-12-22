@@ -26,4 +26,5 @@ public class ErrorMessage {
     public static final String USER_NOT_FOUND_BY_ID = "The user is not found by id ";
     public static final String USER_NOT_FOUND_BY_EMAIL = "The user is not found by email ";
     public static final String USER_NOT_FOUND_BY_NAME = "The user is not found by name ";
+    public static final String USER_ALREADY_EXISTS = "User with specified email is already exists ";
 }

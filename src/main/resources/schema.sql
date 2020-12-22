@@ -59,3 +59,12 @@ CREATE TABLE IF NOT EXISTS machinery(
     release_date date NOT NULL,
     FOREIGN KEY (type) REFERENCES  machinery_types(id)
 );
+CREATE TABLE IF NOT EXISTS history(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    admin_id INT NOT NULL,
+    user_id INT NOT NULL,
+    before text,
+    after text,
+    FOREIGN KEY (admin_id) REFERENCES  users(id),
+    FOREIGN KEY (user_id) REFERENCES  users(id)
+);

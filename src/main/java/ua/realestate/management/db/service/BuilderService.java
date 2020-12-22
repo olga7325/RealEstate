@@ -1,6 +1,5 @@
 package ua.realestate.management.db.service;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import ua.realestate.management.entity.BuilderEntity;

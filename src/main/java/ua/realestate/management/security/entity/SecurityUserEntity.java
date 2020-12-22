@@ -1,49 +1,42 @@
-package ua.realestate.management.entity;
+package ua.realestate.management.security.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ua.realestate.management.entity.UserEntity;
+import ua.realestate.management.entity.UserRole;
 
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
-
+@AllArgsConstructor
 @Data
-@Table(name = "users")
-@NoArgsConstructor
-@Entity
-public class UserEntity implements UserDetails {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+public class SecurityUserEntity implements UserDetails {
     private Integer id;
 
     private String name;
     private String email;
+    @JsonIgnore
     private String password;
     private Boolean isActive;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_roles")
-    @NonNull
     private UserRole userRole;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(getUserRole().getRole()));
-        return authorities;
+        return null;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
+    public static SecurityUserEntity create(UserEntity user) {
+
+        return new SecurityUserEntity(
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getPassword(),
+                user.getIsActive(),
+                user.getUserRole());
     }
 
     @Override
@@ -68,6 +61,6 @@ public class UserEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return isActive;
+        return this.isActive;
     }
 }

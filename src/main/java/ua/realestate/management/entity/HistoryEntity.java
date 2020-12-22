@@ -8,13 +8,14 @@ import javax.persistence.*;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "builder_specialties")
-public class BuilderSpecialties {
-
+@Table(name = "history")
+public class HistoryEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-    private String specialty;
-    private String description;
+    private Integer adminId;
+    private Integer userId;
+    private String before;
+    private String after;
 }
